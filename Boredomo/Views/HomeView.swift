@@ -23,7 +23,7 @@ struct HomeView: View {
                             .fontWeight(.semibold)
                             .multilineTextAlignment(.center)
                             .foregroundStyle(Color.white)
-                            .font(.custom("SF Pro", size: 60))
+                            .font(.custom("SFPro", size: 60))
                         Text("let's find something to do..")
                             .fontWeight(.light)
                             .multilineTextAlignment(.center)
