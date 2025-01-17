@@ -37,7 +37,14 @@ struct HomeView: View {
                 Spacer()
                     
                 //Find Button 
-                    
+                Button{
+                    print("button pressed")
+                }label: {
+                    Image("find")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .padding()
+                }
             }
         }
     }
