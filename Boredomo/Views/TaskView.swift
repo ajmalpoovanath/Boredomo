@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TaskView: View {
+    @Environment(\.presentationMode) var presentationMode
     @State var task: String = "please wait..."
 
     var body: some View {
@@ -18,6 +19,24 @@ struct TaskView: View {
                 .font(.custom("SFPro", size: 36))
                 .foregroundStyle(Color.white)
             
+        }
+        .navigationBarBackButtonHidden(true)
+        .toolbar{
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button{
+                    presentationMode.wrappedValue.dismiss()
+                }label: {
+                    HStack{
+                        Image(systemName: "chevron.left")
+                            .foregroundStyle(Color.white)
+                        Text("Home")
+                            .foregroundStyle(Color.white)
+                    }
+
+                }
+                
+                                
+            }
         }
         
     }
