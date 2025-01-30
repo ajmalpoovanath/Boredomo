@@ -45,6 +45,7 @@ struct HomeView: View {
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .padding()
+                                
                         
                     }
                     

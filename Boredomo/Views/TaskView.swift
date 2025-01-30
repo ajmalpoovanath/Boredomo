@@ -9,13 +9,13 @@ import SwiftUI
 
 struct TaskView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State var task: String = "please wait..."
+    @State var taskResponse: String = "please wait..."
 
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
             
-            Text("\(task)")
+            Text("\(taskResponse)")
                 .font(.custom("SFPro", size: 36))
                 .foregroundStyle(Color.white)
             
@@ -36,6 +36,16 @@ struct TaskView: View {
                 }
                 
                                 
+            }
+        }
+        .onAppear {
+            Task {
+                do {
+                    taskResponse = try await TaskManager().getTask()
+                } catch {
+                    taskResponse = "Failed to fetch task, please try again later."
+                    print("Failed to fetch task: \(error)")
+                }
             }
         }
         
